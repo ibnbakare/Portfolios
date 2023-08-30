@@ -8,8 +8,8 @@ const Navbar = () => {
     const [nav, setNav] =  useState(false)
     
     return (
-        <div className='fixed top-0 left-0 right-0 bg-[#282C33] w-[100%] z-10'>
-            <div className="container mx-auto  ">
+        <div className='  fixed top-0 left-0 right-0 bg-[#282C33] w-[100%] z-10'>
+            <div className=" relative container mx-auto  ">
                 <div className=' flex text-white items-center justify-between mt-4 py-3'>
                     {/* logo */}
                     <Link href="/google.com" className='flex items-center gap-2'>
@@ -19,8 +19,8 @@ const Navbar = () => {
                         </svg></span>
                         Ridhwan
                     </Link>
-
-                    <div className='hidden'>
+                    {/* large screen */}
+                    <div className='hidden md:flex'>
                         {/*these are the links  */}
                         <ul class="flex space-x-4 justify-end">
                             <li className='#FFFFFF text-[16px] font-medium'><a href="#" ><span className='text-[#C778DD] text-[16px] font-medium'>#</span>Home</a></li>
@@ -30,19 +30,21 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <div onClick={()=>setNav(!nav)} >
-                    {nav ? <GiHamburgerMenu /> : "l"}
-                    <div>
+                    <div onClick={()=>setNav(!nav)} className="z-1 cursor-pointer md:hidden" >
+                    {!nav ? <GiHamburgerMenu /> : "l"}
+                    {/* <div className='  bg-black'> */}
                         {/*these are the links  */}
-                        <ul class="flex space-x-4 justify-end">
+                      </div>
+
+                        {nav &&  <ul className="flex flex-col absolute  justify-center items-center top-12 left-0  h-screen w-full bg-gradient-to-b from-black to-gray-800 ">
                             <li className='#FFFFFF text-[16px] font-medium'><a href="#" ><span className='text-[#C778DD] text-[16px] font-medium'>#</span>Home</a></li>
                             <li className='#FFFFFF text-[16px] font-medium'><a href="#" ><span className='text-[#C778DD] text-[16px] font-medium'>#</span>About</a></li>
                             <li className='#FFFFFF text-[16px] font-medium'><a href="#" ><span className='text-[#C778DD] text-[16px] font-medium'>#</span>Contact</a></li>
 
 
-                        </ul>
-                    </div>
-                    </div>
+                        </ul>}
+                    {/* </div> */}
+                    {/* </div> */}
                     
                 </div>
 
